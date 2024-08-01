@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Button, Container } from "react-bootstrap";
+import Products from "./components/Products";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Container className="text-center m-5">
+        <h1 style={{ fontFamily: "monospace" }}>COLORS</h1>
+        <Products />
+        <div className="text-center">
+          <Button
+            variant="secondary"
+            className="p-3 m-5"
+            style={{ color: "skyblue" }}
+          >
+            <h5>SEE THE CART</h5>
+          </Button>
+        </div>
+      </Container>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
