@@ -1,6 +1,9 @@
 import { Navbar, Container, Button } from "react-bootstrap";
+import CartContext from "../Context/CartContext";
+import { useContext } from "react";
 
 const Header = (props) => {
+  const cartCtx = useContext(CartContext);
   return (
     <>
       <Navbar bg="dark" expand="sm" variant="dark" className="mb-1">
@@ -16,7 +19,7 @@ const Header = (props) => {
             >
               Cart
             </Button>{" "}
-            <span style={{ color: "skyblue" }}>0</span>
+            <span style={{ color: "skyblue" }}>{cartCtx.totalQuantity}</span>
           </div>
         </Container>
       </Navbar>

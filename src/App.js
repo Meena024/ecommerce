@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import Cart from "./components/Cart/Cart";
+import CartProvider from "./Context/CartProvider";
 
 const App = () => {
   let [cartVisible, setCartVisible] = useState(false);
@@ -15,7 +16,7 @@ const App = () => {
     setCartVisible(false);
   };
   return (
-    <>
+    <CartProvider>
       <Header onShow={showCart} />
       <Container className="text-center m-5">
         <h1 style={{ fontFamily: "monospace" }}>COLORS</h1>
@@ -26,7 +27,6 @@ const App = () => {
             className="p-3 m-5"
             style={{ color: "skyblue" }}
             onClick={showCart}
-            onHide={hideCart}
           >
             <h5>SEE THE CART</h5>
           </Button>
@@ -34,7 +34,7 @@ const App = () => {
         {cartVisible && <Cart show={cartVisible} onHide={hideCart} />}
       </Container>
       <Footer />
-    </>
+    </CartProvider>
   );
 };
 

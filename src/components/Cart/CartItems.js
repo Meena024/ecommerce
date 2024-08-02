@@ -1,37 +1,12 @@
-import { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { useContext } from "react";
+import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap";
+import CartContext from "../../Context/CartContext";
 
 const CartItems = () => {
+  const cartCtx = useContext(CartContext);
   let total = 0;
-  const [cartElements, setCartElements] = useState([
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ]);
 
-  const removeItemFromCart = (title) => {
-    setCartElements(cartElements.filter((element) => element.title !== title));
-  };
-
-  let cartList = cartElements.map((item) => {
+  let cartList = cartCtx.items.map((item) => {
     total += item.price * item.quantity;
     return (
       <Row
@@ -44,17 +19,25 @@ const CartItems = () => {
         <Col>{item.price}</Col>
         <Col>{item.quantity}</Col>
         <Col>
-          <Button
-            variant="info"
-            className="m-1"
-            onClick={() => removeItemFromCart(item.title)}
-          >
-            Remove
-          </Button>
+          <ButtonGroup aria-label="Basic example" className="m-1">
+            <Button
+              variant="info"
+              onClick={() => cartCtx.decreaseItemQty(item.title)}
+            >
+              -
+            </Button>
+            <Button
+              variant="info"
+              onClick={() => cartCtx.increaseItemQty(item.title)}
+            >
+              +
+            </Button>
+          </ButtonGroup>
         </Col>
       </Row>
     );
   });
+
   return (
     <>
       <Container

@@ -30,7 +30,7 @@ const Products = () => {
     },
   ];
   const products = productsArr.map((product) => {
-    return <ProductItem item={product} />;
+    return <ProductItem key={product.title} item={product} />;
   });
   return (
     <>

@@ -5,14 +5,11 @@ const Cart = (props) => {
   return (
     <>
       <Modal
-        {...props}
+        show={props.show}
+        onHide={props.onHide}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        style={{
-          fontFamily: "revert",
-          align: "center",
-        }}
       >
         <Modal.Header closeButton>
           <div className="w-100 d-flex justify-content-center">
@@ -31,4 +28,5 @@ const Cart = (props) => {
     </>
   );
 };
+
 export default Cart;
