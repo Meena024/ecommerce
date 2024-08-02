@@ -32,7 +32,6 @@ const Products = () => {
   const products = productsArr.map((product) => {
     return <ProductItem item={product} />;
   });
-  console.log(products, productsArr);
   return (
     <>
       <Row className="justify-content-center my-3">{products}</Row>

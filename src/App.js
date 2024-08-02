@@ -3,11 +3,20 @@ import { Button, Container } from "react-bootstrap";
 import Products from "./components/Products";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useState } from "react";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
+  let [cartVisible, setCartVisible] = useState(false);
+  const showCart = () => {
+    setCartVisible(true);
+  };
+  const hideCart = () => {
+    setCartVisible(false);
+  };
   return (
     <>
-      <Header />
+      <Header onShow={showCart} />
       <Container className="text-center m-5">
         <h1 style={{ fontFamily: "monospace" }}>COLORS</h1>
         <Products />
@@ -16,10 +25,13 @@ const App = () => {
             variant="secondary"
             className="p-3 m-5"
             style={{ color: "skyblue" }}
+            onClick={showCart}
+            onHide={hideCart}
           >
             <h5>SEE THE CART</h5>
           </Button>
         </div>
+        {cartVisible && <Cart show={cartVisible} onHide={hideCart} />}
       </Container>
       <Footer />
     </>
