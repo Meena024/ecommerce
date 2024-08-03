@@ -16,10 +16,13 @@ const ProductItem = (props) => {
         <br />
         <br />
         <div>
-          <span style={{ fontFamily: "sans-serif", fontSize: "x-large" }}>
+          <span
+            className="mr-5"
+            style={{ fontFamily: "sans-serif", fontSize: "x-large" }}
+          >
             ${props.item.price}
           </span>
-          <span className="justify-content-right m-5">
+          <span className="m-5">
             <Button
               variant="info"
               style={{ color: "white" }}

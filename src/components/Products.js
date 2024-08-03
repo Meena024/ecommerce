@@ -34,7 +34,7 @@ const Products = () => {
   });
   return (
     <>
-      <Row className="justify-content-center my-3">{products}</Row>
+      <Row className="justify-content-center">{products}</Row>
     </>
   );
 };
