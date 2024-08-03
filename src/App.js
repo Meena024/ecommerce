@@ -8,6 +8,7 @@ import { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./Context/CartProvider";
 import About from "./components/About";
+import Home from "./components/Home";
 
 const App = () => {
   let [cartVisible, setCartVisible] = useState(false);
@@ -25,7 +26,7 @@ const App = () => {
         <Container className="text-center m-5">
           <Routes>
             <Route
-              path="/"
+              path="/store"
               element={
                 <>
                   <h1 style={{ fontFamily: "monospace" }}>COLORS</h1>
@@ -45,6 +46,7 @@ const App = () => {
               }
             />
             <Route path="/about" element={<About />} />
+            <Route path="/" element={<Home />} />
           </Routes>
           {cartVisible && <Cart show={cartVisible} onHide={hideCart} />}
         </Container>

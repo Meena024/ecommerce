@@ -1,10 +1,12 @@
 import { Navbar, Container, Button, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import { useContext } from "react";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
+  const location = useLocation();
+
   return (
     <>
       <Navbar fixed="top" bg="dark" expand="sm" variant="dark" className="pb-3">
@@ -12,7 +14,7 @@ const Header = (props) => {
           <Navbar.Brand as={Link} to="/">
             HOME
           </Navbar.Brand>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/store">
             STORE
           </Navbar.Brand>
           <Navbar.Brand as={Link} to="/about">
@@ -37,7 +39,7 @@ const Header = (props) => {
       <br />
       <br />
       <Navbar bg="secondary" expand="lg" variant="dark" className="pb-5">
-        <Container className="d-flex justify-content-center">
+        <Container className="d-flex flex-column align-items-center">
           <Navbar.Brand
             className="mt-2"
             style={{
@@ -49,6 +51,21 @@ const Header = (props) => {
           >
             The Generics
           </Navbar.Brand>
+          {location.pathname === "/" && (
+            <div>
+              <Button
+                variant="outline-info"
+                style={{
+                  fontWeight: "bold",
+                  marginTop: "20px",
+                  alignSelf: "center",
+                  fontSize: "30px"
+                }}
+              >
+                Get Our Latest Album
+              </Button>
+            </div>
+          )}
         </Container>
       </Navbar>
     </>
