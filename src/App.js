@@ -9,6 +9,7 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./Context/CartProvider";
 import About from "./components/About";
 import Home from "./components/Home";
+import Contact from "./components/Contact";
 
 const App = () => {
   let [cartVisible, setCartVisible] = useState(false);
@@ -47,6 +48,7 @@ const App = () => {
             />
             <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           {cartVisible && <Cart show={cartVisible} onHide={hideCart} />}
         </Container>

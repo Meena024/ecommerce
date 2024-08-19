@@ -20,6 +20,9 @@ const Header = (props) => {
           <Navbar.Brand as={Link} to="/about">
             ABOUT
           </Navbar.Brand>
+          <Navbar.Brand as={Link} to="/contact">
+            CONTACT US
+          </Navbar.Brand>
           <div>
             <Button
               variant="outline-info"
