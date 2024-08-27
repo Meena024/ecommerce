@@ -105,7 +105,7 @@ const Contact = () => {
             style={{ fontWeight: "900" }}
             type="submit"
           >
-            Cart
+            Submit
           </Button>
         </Form>
       </Card>

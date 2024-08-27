@@ -1,5 +1,5 @@
-import { Navbar, Container, Button, Badge } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Navbar, Container, Button, Badge, Nav } from "react-bootstrap";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import { useContext } from "react";
 
@@ -11,9 +11,14 @@ const Header = (props) => {
     <>
       <Navbar fixed="top" bg="dark" expand="sm" variant="dark" className="pb-3">
         <Container style={{ fontWeight: "900" }}>
-          <Navbar.Brand as={Link} to="/">
-            HOME
-          </Navbar.Brand>
+          {/* <Navbar.Brand as={Link} to="/home"> */}
+          {/* HOME */}
+          <Nav>
+            <NavLink to="/home" style={{ fontWeight: "1000", color: "white" }}>
+              HOME
+            </NavLink>
+          </Nav>
+          {/* </Navbar.Brand> */}
           <Navbar.Brand as={Link} to="/store">
             STORE
           </Navbar.Brand>
@@ -31,7 +36,6 @@ const Header = (props) => {
             >
               Cart
             </Button>
-
             <Badge pill bg="dark" className="ml-3">
               <h4>{cartCtx.totalQuantity}</h4>
             </Badge>
@@ -54,7 +58,7 @@ const Header = (props) => {
           >
             The Generics
           </Navbar.Brand>
-          {location.pathname === "/" && (
+          {location.pathname === "/home" && (
             <div>
               <Button
                 variant="outline-info"
@@ -62,7 +66,7 @@ const Header = (props) => {
                   fontWeight: "bold",
                   marginTop: "20px",
                   alignSelf: "center",
-                  fontSize: "30px"
+                  fontSize: "30px",
                 }}
               >
                 Get Our Latest Album

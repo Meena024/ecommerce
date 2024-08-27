@@ -1,18 +1,32 @@
 import React, { useContext } from "react";
 import { Button, Col, Image } from "react-bootstrap";
-import CartContext from "../Context/CartContext";
+import { useHistory } from "react-router-dom";
+import CartContext from "../../../Context/CartContext";
 
 const ProductItem = (props) => {
   const cartCtx = useContext(CartContext);
+  const history = useHistory();
 
   const addItemToCartHandler = () => {
-    cartCtx.addItem({ ...props.item });
+    cartCtx.addItem({ ...props.item, quantity: 1 }); 
   };
+
+  const openProductDetailsHandler = () => {
+    history.push({
+      pathname: `/product-Detail/${props.item.id}`,
+      state: { product: props.item }, 
+    });
+  };
+
   return (
     <>
       <Col md="auto" className="m-5">
         <h2 className="justify-content-center m-2">{props.item.title}</h2>
-        <Image src={props.item.imageUrl} rounded />
+        <Image
+          src={props.item.imageUrl}
+          rounded
+          onClick={openProductDetailsHandler}
+        />
         <br />
         <br />
         <div>

@@ -15,12 +15,12 @@ const CartProvider = (props) => {
       if (existingItem) {
         const updatedItem = {
           ...existingItem,
-          quantity: existingItem.quantity + 1,
+          quantity: existingItem.quantity + item.quantity,
         };
         updatedItems = [...prevItems];
         updatedItems[existingItemIndex] = updatedItem;
       } else {
-        updatedItems = prevItems.concat({ ...item, quantity: 1 });
+        updatedItems = prevItems.concat({ ...item, quantity: item.quantity });
       }
 
       return updatedItems;
