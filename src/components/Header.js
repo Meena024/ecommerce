@@ -1,12 +1,16 @@
-// Header.js
 import { Navbar, Container, Button, Badge, Nav } from "react-bootstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import CartContext from "../Context/CartContext";
+import AuthContext from "../Context/AuthContext";
 import { useContext } from "react";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
   const location = useLocation();
+  const logoutHandler = () => {
+    authCtx.logout();
+  };
 
   return (
     <>
@@ -23,12 +27,18 @@ const Header = (props) => {
           <Navbar.Brand as={Link} to="/about">
             ABOUT
           </Navbar.Brand>
-          <Navbar.Brand as={Link} to="/login">
-            LOGIN
-          </Navbar.Brand>
           <Navbar.Brand as={Link} to="/contact">
             CONTACT US
           </Navbar.Brand>
+          {authCtx.isLoggedIn ? (
+            <Navbar.Brand as={Link} to="/" onClick={logoutHandler}>
+              LOGOUT
+            </Navbar.Brand>
+          ) : (
+            <Navbar.Brand as={Link} to="/login">
+              LOGIN
+            </Navbar.Brand>
+          )}
           <div>
             <Button
               variant="outline-info"

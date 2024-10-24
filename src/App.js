@@ -12,6 +12,7 @@ import Home from "./components/Pages/Home";
 import Contact from "./components/Pages/Contact";
 import ProductDetails from "./components/Pages/Product/ProductDetails";
 import AuthContextProvider from "./Context/AuthContextProvider";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   let [cartVisible, setCartVisible] = useState(false);
@@ -31,7 +32,7 @@ const App = () => {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/store">
+            <PrivateRoute path="/store">
               <h1 style={{ fontFamily: "monospace" }}>COLORS</h1>
               <div className="text-center">
                 <Products />
@@ -44,7 +45,7 @@ const App = () => {
                   <h5>SEE THE CART</h5>
                 </Button>
               </div>
-            </Route>
+            </PrivateRoute>
             <Route path="/about">
               <About />
             </Route>
