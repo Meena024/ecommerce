@@ -35,11 +35,9 @@ const Login = () => {
         throw new Error(data.error.message || "Authentication failed!");
       }
 
-      // Store the token in context and localStorage
       authCtx.login(data.idToken);
       localStorage.setItem("token", data.idToken);
 
-      // Redirect to products page
       history.replace("/store");
     } catch (err) {
       setError(err.message);

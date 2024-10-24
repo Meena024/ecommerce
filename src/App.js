@@ -13,19 +13,6 @@ import Contact from "./components/Pages/Contact";
 import ProductDetails from "./components/Pages/Product/ProductDetails";
 import AuthContextProvider from "./Context/AuthContextProvider";
 
-// import Login from "./components/Pages/Login";
-// import AuthContextProvider from "./Context/AuthContextProvider";
-// import Contact from "./components/Pages/Contact";
-// import About from "./components/Pages/About";
-// import ProductDetails from "./components/Pages/Product/ProductDetails";
-// import { Button, Route, Container, Router } from "react-bootstrap";
-// import Footer from "./components/Footer";
-// import Home from "./components/Header";
-// import { useState } from "react";
-// import CartProvider from "./Context/CartProvider";
-// import Cart from "./components/Cart/Cart";
-// import Products from "./components/Pages/Product/Products";
-
 const App = () => {
   let [cartVisible, setCartVisible] = useState(false);
   const showCart = () => {
