@@ -1,5 +1,6 @@
+// Header.js
 import { Navbar, Container, Button, Badge, Nav } from "react-bootstrap";
-import { Link, useLocation, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import { useContext } from "react";
 
@@ -11,14 +12,11 @@ const Header = (props) => {
     <>
       <Navbar fixed="top" bg="dark" expand="sm" variant="dark" className="pb-3">
         <Container style={{ fontWeight: "900" }}>
-          {/* <Navbar.Brand as={Link} to="/home"> */}
-          {/* HOME */}
           <Nav>
             <NavLink to="/home" style={{ fontWeight: "1000", color: "white" }}>
               HOME
             </NavLink>
           </Nav>
-          {/* </Navbar.Brand> */}
           <Navbar.Brand as={Link} to="/store">
             STORE
           </Navbar.Brand>
@@ -27,6 +25,9 @@ const Header = (props) => {
           </Navbar.Brand>
           <Navbar.Brand as={Link} to="/contact">
             CONTACT US
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="/login">
+            LOGIN
           </Navbar.Brand>
           <div>
             <Button
