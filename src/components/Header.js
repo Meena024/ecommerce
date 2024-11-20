@@ -39,18 +39,20 @@ const Header = (props) => {
               LOGIN
             </Navbar.Brand>
           )}
-          <div>
-            <Button
-              variant="outline-info"
-              style={{ fontWeight: "900" }}
-              onClick={props.onShow}
-            >
-              Cart
-            </Button>
-            <Badge pill bg="dark" className="ml-3">
-              <h4>{cartCtx.totalQuantity}</h4>
-            </Badge>
-          </div>
+          {authCtx.isLoggedIn && (
+            <div>
+              <Button
+                variant="outline-info"
+                style={{ fontWeight: "900" }}
+                onClick={props.onShow}
+              >
+                Cart
+              </Button>
+              <Badge pill bg="dark" className="ml-3">
+                <h4>{cartCtx.totalQuantity}</h4>
+              </Badge>
+            </div>
+          )}
         </Container>
       </Navbar>
       <br />

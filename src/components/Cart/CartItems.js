@@ -22,13 +22,13 @@ const CartItems = () => {
           <ButtonGroup aria-label="Basic example" className="m-1">
             <Button
               variant="info"
-              onClick={() => cartCtx.decreaseItemQty(item.title)}
+              onClick={() => cartCtx.decreaseItemQty(item)}
             >
               -
             </Button>
             <Button
               variant="info"
-              onClick={() => cartCtx.increaseItemQty(item.title)}
+              onClick={() => cartCtx.addItem({ ...item, quantity: 1 })}
             >
               +
             </Button>

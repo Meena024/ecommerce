@@ -1,4 +1,3 @@
-// components/Pages/Login.js
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
@@ -34,9 +33,9 @@ const Login = () => {
       if (!response.ok) {
         throw new Error(data.error.message || "Authentication failed!");
       }
-
-      authCtx.login(data.idToken);
+      authCtx.login(data.idToken, data.email);
       localStorage.setItem("token", data.idToken);
+      localStorage.setItem("email", data.email);
 
       history.replace("/store");
     } catch (err) {
@@ -54,6 +53,7 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="username"
         />
         <input
           type="password"
@@ -61,6 +61,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="current-password"
         />
         <button type="submit">Login</button>
       </form>

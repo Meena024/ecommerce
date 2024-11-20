@@ -7,14 +7,14 @@ const ProductItem = (props) => {
   const cartCtx = useContext(CartContext);
   const history = useHistory();
 
-  const addItemToCartHandler = () => {
-    cartCtx.addItem({ ...props.item, quantity: 1 }); 
+  const addToCartHandler = () => {
+    cartCtx.addItem({ ...props.item, quantity: 1 });
   };
 
   const openProductDetailsHandler = () => {
     history.push({
       pathname: `/product-Detail/${props.item.id}`,
-      state: { product: props.item }, 
+      state: { product: props.item },
     });
   };
 
@@ -25,6 +25,10 @@ const ProductItem = (props) => {
         <Image
           src={props.item.imageUrl}
           rounded
+          style={{ transition: "transform 0.3s ease-in-out" }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          alt={props.item.title}
           onClick={openProductDetailsHandler}
         />
         <br />
@@ -40,7 +44,7 @@ const ProductItem = (props) => {
             <Button
               variant="info"
               style={{ color: "white" }}
-              onClick={addItemToCartHandler}
+              onClick={addToCartHandler}
             >
               <h5>ADD TO CART</h5>
             </Button>
