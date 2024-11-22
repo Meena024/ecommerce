@@ -47,13 +47,12 @@ const ProductDetails = () => {
   return (
     <div>
       <h2 style={{ textAlign: "left" }}>Product Details</h2>
-
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
             <Image
               src={`/Images/${selectedImage}`}
-              style={{ width: "800px", height: "400px" }}
+              style={{ width: "100%", height: "80%", padding:"25px"}}
             />
             <Row className="mt-3">
               {images.map((imageName, index) => (
@@ -90,7 +89,7 @@ const ProductDetails = () => {
                 step="1"
               />
             </Form.Group>
-            <Button variant="info" onClick={addToCartHandler}>
+            <Button variant="info" onClick={addToCartHandler} style={{marginTop:"20px", padding:"10px"}}>
               Add to Cart
             </Button>
           </Col>

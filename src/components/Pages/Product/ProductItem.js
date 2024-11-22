@@ -20,7 +20,7 @@ const ProductItem = (props) => {
 
   return (
     <>
-      <Col md="auto" className="m-5">
+      <Col md="auto" className="m-3">
         <h2 className="justify-content-center m-2">{props.item.title}</h2>
         <Image
           src={props.item.imageUrl}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Products from "./components/Pages/Product/Products";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -28,7 +28,7 @@ const App = () => {
       <CartProvider>
         <Router>
           <Header onShow={showCart} />
-          <Container className="text-center m-5">
+          <div className="text-center m-5">
             <Route path="/home">
               <Home />
             </Route>
@@ -59,7 +59,7 @@ const App = () => {
               <Login />
             </Route>
             {cartVisible && <Cart show={cartVisible} onHide={hideCart} />}
-          </Container>
+          </div>
           <Footer />
         </Router>
       </CartProvider>

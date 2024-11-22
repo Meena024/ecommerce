@@ -55,6 +55,8 @@ const Login = () => {
           required
           autoComplete="username"
         />
+        <br />
+        <br />
         <input
           type="password"
           placeholder="Password"
@@ -63,6 +65,8 @@ const Login = () => {
           required
           autoComplete="current-password"
         />
+        <br />
+        <br />
         <button type="submit">Login</button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
