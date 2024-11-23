@@ -6,37 +6,51 @@ const CartItems = () => {
   const cartCtx = useContext(CartContext);
   let total = 0;
 
-  let cartList = cartCtx.items.map((item) => {
-    total += item.price * item.quantity;
-    return (
-      <Row
-        key={item.title}
+  let cartList =
+    cartCtx.items.length === 0 ? (
+      <div
         style={{
+          textAlign: "center",
+          fontSize: "30px",
           fontWeight: "lighter",
+          fontFamily: "initial",
         }}
       >
-        <Col xs={6}>{item.title}</Col>
-        <Col>{item.price}</Col>
-        <Col>{item.quantity}</Col>
-        <Col>
-          <ButtonGroup aria-label="Basic example" className="m-1">
-            <Button
-              variant="info"
-              onClick={() => cartCtx.decreaseItemQty(item)}
-            >
-              -
-            </Button>
-            <Button
-              variant="info"
-              onClick={() => cartCtx.addItem({ ...item, quantity: 1 })}
-            >
-              +
-            </Button>
-          </ButtonGroup>
-        </Col>
-      </Row>
+        Your Cart Is Empty!
+      </div>
+    ) : (
+      cartCtx.items.map((item) => {
+        total += item.price * item.quantity;
+        return (
+          <Row
+            key={item.title}
+            style={{
+              fontWeight: "lighter",
+            }}
+          >
+            <Col xs={6}>{item.title}</Col>
+            <Col>{item.price}</Col>
+            <Col>{item.quantity}</Col>
+            <Col>
+              <ButtonGroup aria-label="Basic example" className="m-1">
+                <Button
+                  variant="info"
+                  onClick={() => cartCtx.decreaseItemQty(item)}
+                >
+                  -
+                </Button>
+                <Button
+                  variant="info"
+                  onClick={() => cartCtx.addItem({ ...item, quantity: 1 })}
+                >
+                  +
+                </Button>
+              </ButtonGroup>
+            </Col>
+          </Row>
+        );
+      })
     );
-  });
 
   return (
     <>
